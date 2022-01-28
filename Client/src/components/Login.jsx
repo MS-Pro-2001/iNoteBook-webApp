@@ -13,7 +13,7 @@ let navigate = useNavigate()
   const handleOnSubmit = async (e) => {
     e.preventDefault();
  
-    const response = await fetch("http://localhost:5000/api/auth/loginUser", {
+    const response = await fetch("/api/auth/loginUser", {
       method: "POST",
 
       headers: {
@@ -35,7 +35,7 @@ let navigate = useNavigate()
 
     try {
 
-      const UserDetails = await fetch("http://localhost:5000/api/auth/GetUserDetails", {
+      const UserDetails = await fetch("/api/auth/GetUserDetails", {
         method: "GET",
   
         headers: {
