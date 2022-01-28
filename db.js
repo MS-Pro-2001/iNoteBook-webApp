@@ -14,9 +14,9 @@ const connectToMongo = ()=>{
         useFindAndModify:false
 
 
-    } .then(()=>{
+    }, ()=>{
         console.log("Connect to database successfully.")
-    }))
+    })
 }
 
 
