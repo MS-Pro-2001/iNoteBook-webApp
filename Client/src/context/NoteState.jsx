@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import NoteContext from "./NoteContext";
 import { Button, message } from 'antd';
 
-const authToken = localStorage.getItem('token')
+
 const NoteState = (props) => {
 
   const host = "http://localhost:5000"
@@ -31,7 +31,7 @@ const NoteState = (props) => {
 
       headers: {
         'Content-Type': 'application/json',
-        'auth-token': `${authToken}`
+        'auth-token':localStorage.getItem('token')
 
 
       }
@@ -56,7 +56,7 @@ const NoteState = (props) => {
 
       headers: {
         'Content-Type': 'application/json',
-        'auth-token': `${authToken}`
+        'auth-token': localStorage.getItem('token')
 
 
       },
@@ -78,7 +78,7 @@ const NoteState = (props) => {
 
       headers: {
         'Content-Type': 'application/json',
-        'auth-token':`${authToken}`
+        'auth-token':localStorage.getItem('token')
 
 
       },
@@ -103,7 +103,7 @@ const NoteState = (props) => {
 
       headers: {
         'Content-Type': 'application/json',
-        'auth-token': `${authToken}`
+        'auth-token': localStorage.getItem('token')
         // 'auth-token': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFlNjcwMmVmYmY4YzBiYWYwZTFlNGRiIn0sImlhdCI6MTY0MjQ5MTk1MH0.FXjxkpr1y0YQTXzNe8Dg0Ovf8dFFmqejofsmLS1eG2c"
 
 

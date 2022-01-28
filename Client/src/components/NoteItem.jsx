@@ -7,18 +7,18 @@ const NoteItem = (props) => {
   const context = useContext(NoteContext);
   const { DeleteNote } = context;
   const { note, UpdateNotes } = props;
-  const [loading, setloading] = useState(true);
+  // const [loading, setloading] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setloading(false);
-    }, 3000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setloading(false);
+  //   }, 3000);
+  // }, []);
 
 
   return (
     <>
-      {loading ? (
+      {/* {loading ? (
         <>
           <div className="col-3">
             <div className=" mb-3" style={{ maxWidth: "18rem" }}>
@@ -28,7 +28,7 @@ const NoteItem = (props) => {
             </div>
           </div>
         </>
-      ) : (
+      ) : ( */}
         <>
           <div className="col-3">
             <div
@@ -55,7 +55,7 @@ const NoteItem = (props) => {
             </div>
           </div>
         </>
-      )}
+      
     </>
   );
 };

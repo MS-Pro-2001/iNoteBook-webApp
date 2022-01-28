@@ -12,6 +12,7 @@ let navigate = useNavigate()
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
+ 
     const response = await fetch("http://localhost:5000/api/auth/loginUser", {
       method: "POST",
 
@@ -45,7 +46,7 @@ let navigate = useNavigate()
       });
       const json2 = await UserDetails.json();
       console.log(json2)
-       localStorage.setItem('credentials',JSON.stringify(json2))
+       
       
     } catch (error) {
       console.log(error)
