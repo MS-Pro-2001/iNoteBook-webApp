@@ -3,18 +3,13 @@
 const dotenv = require("dotenv")
 const mongoose = require('mongoose');
 
+dotenv.config({path:'./config.env'})
+
 // const mongoUrl = "mongodb://localhost:27017/inotebook?readPreference=primary&appname=MongoDB%20Compass&ssl=false"
-const mongoUrl = "mongodb+srv://mridul:-5cH4mAFC-2z7Jb@cluster0.qbivq.mongodb.net/inotebook?retryWrites=true&w=majority"
+const DB = process.env.DATABASE 
 
 const connectToMongo = ()=>{
-    mongoose.connect(mongoUrl,{
-        useNewUrlParser:true,
-        useCreateIndex:true,
-        useUnifiedTopology:true,
-        useFindAndModify:false
-
-
-    }, ()=>{
+    mongoose.connect(DB, ()=>{
         console.log("Connect to database successfully.")
     })
 }
