@@ -144,12 +144,15 @@ const Notes = () => {
           </div>
         </div>
       </div>
-      <h1>Your Notes are listed here...</h1>
+      <h3>Your Notes are listed here...</h3>
 
       <div className="container">
-        <div className="row">
+        <div className="row ">
           {notes.length === 0 ? (
-            <>No notes available</>
+            <>
+            <img src="empty.svg" alt="No notes are available" width={250} height={250} />
+            <h2 className="text-center"> Empty?? Try Adding notes.</h2>
+            </>
           ) : (
             notes.map((note) => {
               return (

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { message } from "antd";
 
 const NavBar = () => {
 
@@ -9,6 +10,7 @@ const NavBar = () => {
   const handleLogout = ()=>{
 
     localStorage.removeItem('token')
+    message.success("Logout Successfully")
   }
 
 
@@ -32,11 +34,11 @@ const NavBar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className={`nav-link ${location.pathname==="/Home"?"active":""}`} aria-current="page" to="/Home">
                   Home
                 </Link>
-              </li>
+              </li> */}
               {/* <li className="nav-item">
                 <Link className={`nav-link ${location.pathname==="/about"?"active":""}`} to="/about">
                   Link
@@ -46,12 +48,12 @@ const NavBar = () => {
      
         {localStorage.getItem('token')? 
         <>
-        <Link to="/" className="btn btn-primary d-flex" type="submit" onClick={handleLogout} >Logout</Link>
+        <Link to="/" className="btn btn-primary " type="submit" onClick={handleLogout} >Logout</Link>
         </>
         :
         <>
-         <Link to="/signup" className="btn btn-danger d-flex mx-2" type="submit">SignUp</Link>
-        <Link to="/" className="btn btn-primary d-flex" type="submit">Login</Link></>
+         <Link to="/signup" className="btn btn-danger  mx-2" type="submit">SignUp</Link>
+        <Link to="/" className="btn btn-primary " type="submit">Login</Link></>
         }
        
  

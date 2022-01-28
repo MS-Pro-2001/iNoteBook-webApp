@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { message } from "antd";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
-  
-let navigate = useNavigate()
+
+  let navigate = useNavigate();
+
+  const error = (errorMessage) => {
+    message.error(errorMessage);
+  };
 
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -12,59 +17,53 @@ let navigate = useNavigate()
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
- 
+
     const response = await fetch("/api/auth/loginUser", {
       method: "POST",
 
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email: credentials.email, password: credentials.password }) 
+      body: JSON.stringify({
+        email: credentials.email,
+        password: credentials.password,
+      }),
     });
     const json = await response.json();
-    console.log(json.authToken)
-    if(json.authToken){
-        localStorage.setItem('token',json.authToken)
-        navigate("/Home")
-
+    console.log(json.authToken);
+    if (json.authToken) {
+      localStorage.setItem("token", json.authToken);
+      navigate("/Home");
+    } else {
+      error("Invalid credentials. Please try again.")
     }
-    else{
-        alert("inavalid credentials")
-    }
-
 
     try {
-
       const UserDetails = await fetch("/api/auth/GetUserDetails", {
         method: "GET",
-  
+
         headers: {
           "Content-Type": "application/json",
-          "auth-token":`${json.authToken}`
+          "auth-token": `${json.authToken}`,
         },
-      
       });
       const json2 = await UserDetails.json();
-      console.log(json2)
-       
-      
+      console.log(json2);
     } catch (error) {
-      console.log(error)
-      
+      console.log(error);
     }
-
-
-  
-   
-   
-
-
   };
 
   return (
     <div>
-      <h1 className="text-center">Login</h1>
-      <form className="container col-6" onSubmit={handleOnSubmit}>
+    
+     
+      <div className="text-center">
+      <h1 >Login</h1>
+      <img  src="login.svg" alt="login image" width={300} height={300}/>
+      </div>
+
+      <form className="container col-8" onSubmit={handleOnSubmit}>
         <div className="mb-3 ">
           <label htmlFor="exampleInputEmail1" className="form-label">
             Email address
@@ -93,11 +92,14 @@ let navigate = useNavigate()
             onChange={onChange}
           />
         </div>
-
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
+        <div className="text-center">
+          <button type="submit" className="btn btn-primary ">
+            LOGIN
+          </button>
+        </div>
+       
       </form>
+      
     </div>
   );
 };

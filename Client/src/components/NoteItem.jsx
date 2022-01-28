@@ -17,23 +17,23 @@ const NoteItem = (props) => {
 
 
   return (
-    <>
-      {/* {loading ? (
-        <>
-          <div className="col-3">
-            <div className=" mb-3" style={{ maxWidth: "18rem" }}>
-              <Skeleton variant="text" />
+   
+      // {/* {loading ? (
+      //   <>
+      //     <div className="col-3">
+      //       <div className=" mb-3" style={{ maxWidth: "18rem" }}>
+      //         <Skeleton variant="text" />
 
-              <Skeleton variant="rectangular" height={118} />
-            </div>
-          </div>
-        </>
-      ) : ( */}
+      //         <Skeleton variant="rectangular" height={118} />
+      //       </div>
+      //     </div>
+      //   </>
+      // ) : ( */}
         <>
-          <div className="col-3">
+          <div className="col-lg-4 col-md-4 col-sm-8  mx-auto">
             <div
               className="card text-white bg-primary mb-3"
-              style={{ maxWidth: "18rem" }}
+              
             >
               <div className="card-header">{note.title}</div>
               <div className="card-body">
@@ -55,8 +55,7 @@ const NoteItem = (props) => {
             </div>
           </div>
         </>
-      
-    </>
+   
   );
 };
 
