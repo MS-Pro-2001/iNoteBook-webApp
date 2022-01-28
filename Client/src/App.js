@@ -50,10 +50,10 @@ function App() {
             <NavBar />
             <div className="container">
           <Routes>
-            <Route exact path="/" element={<Home />} />
+            <Route exact path="/Home" element={<Home />} />
             <Route exact path="/about" element={<About />} />
             <Route exact path="/signup" element={<SignUp/>} />
-            <Route exact path="/login" element={<Login/>} />
+            <Route exact path="/" element={<Login/>} />
           </Routes>
         </div>
           </>}

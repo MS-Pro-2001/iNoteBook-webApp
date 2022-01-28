@@ -46,12 +46,12 @@ const NavBar = () => {
      
         {localStorage.getItem('token')? 
         <>
-        <Link to="/login" className="btn btn-primary d-flex" type="submit" onClick={handleLogout} >Logout</Link>
+        <Link to="/" className="btn btn-primary d-flex" type="submit" onClick={handleLogout} >Logout</Link>
         </>
         :
         <>
          <Link to="/signup" className="btn btn-danger d-flex mx-2" type="submit">SignUp</Link>
-        <Link to="/login" className="btn btn-primary d-flex" type="submit">Login</Link></>
+        <Link to="/" className="btn btn-primary d-flex" type="submit">Login</Link></>
         }
        
  

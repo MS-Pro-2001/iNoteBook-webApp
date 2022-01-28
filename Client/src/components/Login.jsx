@@ -24,7 +24,7 @@ let navigate = useNavigate()
     console.log(json.authToken)
     if(json.authToken){
         localStorage.setItem('token',json.authToken)
-        navigate("/")
+        navigate("/Home")
 
     }
     else{

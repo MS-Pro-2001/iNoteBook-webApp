@@ -124,7 +124,7 @@ const Notes = () => {
 
 
 
-                    {notes.map((note) => {
+                    { !notes ? <>Loading...</>: notes.map((note) => {
                         return (
 
                             <NoteItem note={note} key={note._id} UpdateNotes={UpdateNotes} />
